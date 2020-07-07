@@ -26,6 +26,7 @@
                             {% csrf_token %}
                             <input type="hidden" name="next" value="{{ next }}">
                             <button type="submit" class="btn btn-success">Login</button>
+                            <a href="{% url 'password_reset' %}" class="text-success d-block mt-3">Forgot your password?</a>
                         </form>
                     </div>
                 </div>
