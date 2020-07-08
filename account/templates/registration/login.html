@@ -26,7 +26,6 @@
                             {% csrf_token %}
                             <a href="{% url 'password_reset' %}" class="text-success d-block mt-3">Forgot your password?</a>
                             <input type="hidden" name="next" value="{{ next }}">
-                        </form>
                     </div>
                     <div class="card-footer bg-white border-top-0">
                         <div class="row align-items-center">
@@ -38,6 +37,7 @@
                             </div>
                         </div>
                     </div>
+                </form>
                 </div>
             </div>
         </div>
