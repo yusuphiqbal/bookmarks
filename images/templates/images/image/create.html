@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Bookmark an Image{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="display-5">Bookmark an Image</h1>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="{{ request.GET.url }}" class="img-fluid">
+                            </div>
+                            <div class="col-md-6">
+                                <form method="post">
+                                    {% for field in form %}
+                                        <div class="form-group">
+                                            {% if field.html_name == 'url' %}
+                                                {{ field }}
+                                            {% else %}
+                                                {{ field.label_tag }}
+                                                {{ field }}
+                                            {% endif %}
+                                        </div>
+                                    {% endfor %}
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-success">Bookmark It!</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
