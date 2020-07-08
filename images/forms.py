@@ -12,7 +12,7 @@ class ImageCreateForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'url': forms.HiddenInput(),
-            'desciption': forms.TextInput(attrs={'class': 'form-control'}),
+            'description': forms.Textarea(attrs={'class': 'form-control'}),
         }
 
     def clean_url(self):
@@ -31,7 +31,8 @@ class ImageCreateForm(forms.ModelForm):
         name = slugify(image.title)
         extension = image_url.rsplit('.', 1)[1].lower()
         image_name = f'{name}.{extension}'
-        response = request.urlopen(image_name, ContentFile(response.read()), save=False)
+        response = request.urlopen(image_url)
+        image.image.save(image_name, ContentFile(response.read()), save=False)
 
         if commit:
             image.save()
