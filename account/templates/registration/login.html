@@ -24,10 +24,19 @@
                                 </div>
                             {% endfor %}
                             {% csrf_token %}
-                            <input type="hidden" name="next" value="{{ next }}">
-                            <button type="submit" class="btn btn-success">Login</button>
                             <a href="{% url 'password_reset' %}" class="text-success d-block mt-3">Forgot your password?</a>
+                            <input type="hidden" name="next" value="{{ next }}">
                         </form>
+                    </div>
+                    <div class="card-footer bg-white border-top-0">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                            <button type="submit" class="btn btn-success btn-block">Login</button>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="{% url 'register' %}" class="text-success btn btn-light btn-block">Register for an account.</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
