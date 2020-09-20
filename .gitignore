@@ -348,7 +348,7 @@ fabric.properties
 .idea/$CACHE_FILE$
 
 ### VisualStudioCode ###
-.vscode/*
+.vscode/
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
